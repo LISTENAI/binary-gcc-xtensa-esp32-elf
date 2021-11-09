@@ -8,9 +8,9 @@ const execFile = promisify(_execFile);
 export const HOME = join(__dirname, '..', 'binary');
 
 export default <Binary>{
-  homeDir: HOME,
+  homeDir: join(HOME, 'xtensa-esp32-elf'),
 
-  binaryDir: join(HOME, 'bin'),
+  binaryDir: join(HOME, 'xtensa-esp32-elf', 'bin'),
 
   async version() {
     const { stdout } = await execFile(join(this.binaryDir, 'xtensa-esp32-elf-gcc'), ['--version']);
